@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+
+	$: console.log($page.url.pathname); // 현재 경로를 출력
 </script>
 
 <div class="sidebar">
-	<a href="/" class:active={$page.route.id === '/'}>Main</a>
-	<a href="/user" class:active={$page.route.id === '/user'}>User</a>
-	<a href="/movie" class:active={$page.route.id === '/movie'}>Movie</a>
-	<a href="/ad" class:active={$page.route.id === '/ad'}>AD</a>
+	<a href="/" class:active={$page.url.pathname === '/'}>Main</a>
+	<a href="/user" class:active={$page.url.pathname === '/user'}>User</a>
+	<a href="/movie" class:active={$page.url.pathname === '/movie'}>Movie</a>
+	<a href="/ad" class:active={$page.url.pathname === '/ad'}>AD</a>
 </div>
 
 <style>
