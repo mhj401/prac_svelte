@@ -21,6 +21,7 @@
 		gap: 5px;
 		border: 1px solid rgb(220, 220, 220);
 		padding-top: 5px;
+		background-color: white;
 	}
 
 	.sidebar a {
@@ -35,7 +36,7 @@
 
 	a.active {
 		color: white;
-		background-color: rgb(52, 52, 52);
+		background-color: #8b93c9;
 		/* border: none; */
 	}
 </style>

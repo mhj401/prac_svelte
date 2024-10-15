@@ -9,8 +9,8 @@
 	<slot />
 </div>
 
-<style>
+<!-- <style>
 	.app {
 		margin-left: 200px;
 	}
-</style>
+</style> -->

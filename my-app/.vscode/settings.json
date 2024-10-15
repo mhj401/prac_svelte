@@ -1,0 +1,6 @@
+{
+    "workbench.editor.customLabels.patterns": {
+        "**/src/routes/**/+page.svelte": "${dirname} - page",
+        "**/src/routes/**/+layout.svelte": "${dirname} - layout",
+    }
+}
