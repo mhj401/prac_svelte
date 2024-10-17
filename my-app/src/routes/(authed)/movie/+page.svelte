@@ -4,5 +4,6 @@
 	h1 {
 		padding: 20px 0;
 		margin-left: 200px;
+		color: #4a4a4a;
 	}
 </style>

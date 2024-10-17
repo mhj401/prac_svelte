@@ -20,8 +20,10 @@
 		flex-direction: column;
 		gap: 5px;
 		border: 1px solid rgb(220, 220, 220);
-		padding-top: 5px;
+		border-top: none;
+		padding-top: 0px;
 		background-color: white;
+		font-size: 0;
 	}
 
 	.sidebar a {
@@ -32,11 +34,14 @@
 		background-color: white;
 		text-decoration: none;
 		color: rgb(50, 50, 50);
+		font-size: 16px;
 	}
 
 	a.active {
 		color: white;
 		background-color: #8b93c9;
+		/* background-color: #c8a2c8; */
+		font-weight: 600;
 		/* border: none; */
 	}
 </style>

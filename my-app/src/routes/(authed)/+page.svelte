@@ -25,6 +25,7 @@
 	h1 {
 		padding: 20px 0;
 		margin-left: 200px;
+		color: #4a4a4a;
 	}
 
 	.counting_wrap {
@@ -42,6 +43,7 @@
 		max-width: 250px;
 		width: 100%;
 		background-color: #8b93c9;
+		/* background-color: #c8a2c8; */
 		aspect-ratio: 1/1;
 		border-radius: 10px;
 		display: flex;

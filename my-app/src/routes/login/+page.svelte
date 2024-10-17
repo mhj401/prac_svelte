@@ -26,9 +26,12 @@
 </script>
 
 <div class="login_wrap">
-	<img class="logo_img" src="/img/logo_white.png" alt="heradee logo" />
+	<div class="logo_div">
+		<img class="logo_img" src="/img/logo_white.png" alt="heradee logo" />
+	</div>
 	<form class="login_form">
 		<div>
+			<p>*아이디</p>
 			<input
 				class="id_input"
 				type="text"
@@ -40,6 +43,7 @@
 			/>
 		</div>
 		<div>
+			<p>*비밀번호</p>
 			<input
 				class="pw_input"
 				type="password"
@@ -62,10 +66,22 @@
 	.login_wrap {
 		text-align: center;
 		margin-top: 150px;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: white;
+		/* padding: 30px 20px; */
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	.logo_div {
+		background-color: #c8a2c8;
+		background-color: #8b93c9;
+		padding: 15px 0;
 	}
 
 	.logo_img {
-		filter: invert(100%);
 		width: 70px;
 	}
 
@@ -75,7 +91,18 @@
 		margin: auto;
 		display: flex;
 		flex-direction: column;
-		padding: 50px 30px;
+		padding: 40px 30px;
+	}
+
+	.login_form p {
+		font-size: 14px;
+		font-weight: 500;
+		text-align: start;
+		margin-bottom: 8px;
+	}
+
+	.login_form div:first-child {
+		margin-bottom: 20px;
 	}
 
 	input {
@@ -84,25 +111,24 @@
 		height: 60px;
 		padding: 0px 5px;
 		border: 1px solid rgb(150, 150, 150);
-	}
-
-	.login_form div:first-child input {
-		border-bottom: 0px;
+		border-radius: 8px;
 	}
 
 	button {
 		width: 100%;
 		border: none;
 		height: 65px;
-		/* border-radius: 8px; */
+		border-radius: 8px;
 		color: white;
 		font-size: 18px;
+		/* background-color: #8b93c9; */
+		background-color: #c8a2c8;
 		background-color: #8b93c9;
 		margin-top: 20px;
 		cursor: pointer;
 	}
 
-	button:disabled {
+	/* button:disabled {
 		background-color: rgb(160, 160, 160);
-	}
+	} */
 </style>

@@ -7,6 +7,7 @@
 		text-align: center;
 		padding: 10px 0;
 		border-bottom: 1px solid rgb(220, 220, 220);
+		background-color: white;
 	}
 
 	img {
