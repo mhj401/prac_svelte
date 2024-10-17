@@ -8,9 +8,3 @@
 <div class="app">
 	<slot />
 </div>
-
-<!-- <style>
-	.app {
-		margin-left: 200px;
-	}
-</style> -->
