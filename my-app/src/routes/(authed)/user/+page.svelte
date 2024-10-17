@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import { json } from '@sveltejs/kit';
-
-	$: ({ params } = $page);
+	import { onMount } from 'svelte';
 
 	function formatCount(count: number): string {
 		if (count >= 1000000) {
@@ -31,50 +28,6 @@
 		{ nickName: 'Nuguri', name: 'Jang Ha-gwon', movieCount: 43, followerCount: 2100 },
 		{ nickName: 'Ruler', name: 'Park Jae-hyuk', movieCount: 132, followerCount: 7100 },
 		{ nickName: 'Chovy', name: 'Jeong Ji-hoon', movieCount: 120, followerCount: 8200 },
-		{ nickName: 'Deft', name: 'Kim Hyuk-kyu', movieCount: 144, followerCount: 9500 },
-		{ nickName: 'ralph', name: 'Moon HongJoo', movieCount: 12, followerCount: 31 },
-		{ nickName: 'Faker', name: 'Lee Sanghyuk', movieCount: 106, followerCount: 2300 },
-		{ nickName: 'Zefa', name: 'Lee Jae-min', movieCount: 45, followerCount: 1500 },
-		{ nickName: 'Canna', name: 'Kim Chang-dong', movieCount: 67, followerCount: 2100 },
-		{ nickName: 'Teddy', name: 'Park Jin-sung', movieCount: 99, followerCount: 5000 },
-		{ nickName: 'Khan', name: 'Kim Dong-ha', movieCount: 54, followerCount: 1200 },
-		{ nickName: 'Showmaker', name: 'Heo Su', movieCount: 76, followerCount: 3400 },
-		{ nickName: 'Nuguri', name: 'Jang Ha-gwon', movieCount: 43, followerCount: 2100 },
-		{ nickName: 'Ruler', name: 'Park Jae-hyuk', movieCount: 132, followerCount: 7100 },
-		{ nickName: 'Chovy', name: 'Jeong Ji-hoon', movieCount: 120, followerCount: 8200 },
-		{ nickName: 'Deft', name: 'Kim Hyuk-kyu', movieCount: 144, followerCount: 9500 },
-		{ nickName: 'ralph', name: 'Moon HongJoo', movieCount: 12, followerCount: 31 },
-		{ nickName: 'Faker', name: 'Lee Sanghyuk', movieCount: 106, followerCount: 2300 },
-		{ nickName: 'Zefa', name: 'Lee Jae-min', movieCount: 45, followerCount: 1500 },
-		{ nickName: 'Canna', name: 'Kim Chang-dong', movieCount: 67, followerCount: 2100 },
-		{ nickName: 'Teddy', name: 'Park Jin-sung', movieCount: 99, followerCount: 5000 },
-		{ nickName: 'Khan', name: 'Kim Dong-ha', movieCount: 54, followerCount: 1200 },
-		{ nickName: 'Showmaker', name: 'Heo Su', movieCount: 76, followerCount: 3400 },
-		{ nickName: 'Nuguri', name: 'Jang Ha-gwon', movieCount: 43, followerCount: 2100 },
-		{ nickName: 'Ruler', name: 'Park Jae-hyuk', movieCount: 132, followerCount: 7100 },
-		{ nickName: 'Chovy', name: 'Jeong Ji-hoon', movieCount: 120, followerCount: 8200 },
-		{ nickName: 'Deft', name: 'Kim Hyuk-kyu', movieCount: 144, followerCount: 9500 },
-		{ nickName: 'ralph', name: 'Moon HongJoo', movieCount: 12, followerCount: 31 },
-		{ nickName: 'Faker', name: 'Lee Sanghyuk', movieCount: 106, followerCount: 2300 },
-		{ nickName: 'Zefa', name: 'Lee Jae-min', movieCount: 45, followerCount: 1500 },
-		{ nickName: 'Canna', name: 'Kim Chang-dong', movieCount: 67, followerCount: 2100 },
-		{ nickName: 'Teddy', name: 'Park Jin-sung', movieCount: 99, followerCount: 5000 },
-		{ nickName: 'Khan', name: 'Kim Dong-ha', movieCount: 54, followerCount: 1200 },
-		{ nickName: 'Showmaker', name: 'Heo Su', movieCount: 76, followerCount: 3400 },
-		{ nickName: 'Nuguri', name: 'Jang Ha-gwon', movieCount: 43, followerCount: 2100 },
-		{ nickName: 'Ruler', name: 'Park Jae-hyuk', movieCount: 132, followerCount: 7100 },
-		{ nickName: 'Chovy', name: 'Jeong Ji-hoon', movieCount: 120, followerCount: 8200 },
-		{ nickName: 'Deft', name: 'Kim Hyuk-kyu', movieCount: 144, followerCount: 9500 },
-		{ nickName: 'ralph', name: 'Moon HongJoo', movieCount: 12, followerCount: 31 },
-		{ nickName: 'Faker', name: 'Lee Sanghyuk', movieCount: 106, followerCount: 2300 },
-		{ nickName: 'Zefa', name: 'Lee Jae-min', movieCount: 45, followerCount: 1500 },
-		{ nickName: 'Canna', name: 'Kim Chang-dong', movieCount: 67, followerCount: 2100 },
-		{ nickName: 'Teddy', name: 'Park Jin-sung', movieCount: 99, followerCount: 5000 },
-		{ nickName: 'Khan', name: 'Kim Dong-ha', movieCount: 54, followerCount: 1200 },
-		{ nickName: 'Showmaker', name: 'Heo Su', movieCount: 76, followerCount: 3400 },
-		{ nickName: 'Nuguri', name: 'Jang Ha-gwon', movieCount: 43, followerCount: 2100 },
-		{ nickName: 'Ruler', name: 'Park Jae-hyuk', movieCount: 132, followerCount: 7100 },
-		{ nickName: 'Chovy', name: 'Jeong Ji-hoon', movieCount: 120, followerCount: 8200 },
 		{ nickName: 'Deft', name: 'Kim Hyuk-kyu', movieCount: 144, followerCount: 9500 }
 		// ... 더 많은 유저 데이터
 	];
@@ -90,7 +43,7 @@
 	// 	});
 
 	let currentPageUsers: User[] = getCurrentPageUsers();
-	let pageNumbers: number[] = [1, 2, 3, 4, 5];
+	let pageNumbers: number[] = []; // 빈 배열로 초기화
 
 	function getCurrentPageUsers() {
 		const start = (currentPage - 1) * itemsPerPage;
@@ -109,8 +62,7 @@
 
 	// 페이지 번호 생성
 	function getPageNumbers() {
-		const maxPagesToShow = 5;
-
+		const maxPagesToShow = Math.min(5, totalPages); // Limit to 5 or fewer if totalPages is less
 		let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
 		let endPage = startPage + maxPagesToShow - 1;
 
@@ -119,27 +71,24 @@
 			startPage = Math.max(1, endPage - maxPagesToShow + 1);
 		}
 
-		// 마지막 페이지 클릭 시 페이지 번호 조정
-		if (currentPage >= totalPages - 1) {
-			startPage = Math.max(1, totalPages - maxPagesToShow + 1);
-			endPage = totalPages;
-		}
-
+		// Reset pageNumbers based on the actual range
+		pageNumbers = [];
 		for (let i = startPage; i <= endPage; i++) {
-			pageNumbers[i - startPage] = i;
+			pageNumbers.push(i);
 		}
 
 		console.log('총 페이지:', totalPages);
 		console.log('생성된 페이지 번호:', pageNumbers); // 추가된 로그
 	}
 
+	onMount(() => {
+		getPageNumbers();
+	});
+
 	currentPageUsers = getCurrentPageUsers();
 </script>
 
 <h1>유저 관리</h1>
-<div style="margin-left: 200px;">
-	<span>{JSON.stringify(params)}</span>
-</div>
 
 <div class="user_wrap">
 	<div class="list_head tr">
