@@ -137,7 +137,9 @@
 </script>
 
 <h1>유저 관리</h1>
-<div style="margin-left: 200px;">{JSON.stringify(params)}</div>
+<div style="margin-left: 200px;">
+	<span>{JSON.stringify(params)}</span>
+</div>
 
 <div class="user_wrap">
 	<div class="list_head tr">

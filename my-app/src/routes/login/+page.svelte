@@ -36,10 +36,10 @@
 				class="id_input"
 				type="text"
 				bind:value={inputValue}
-				required
 				on:invalid={handleInvalid}
 				on:input={handleInput}
 				placeholder="아이디를 입력하세요"
+				required
 			/>
 		</div>
 		<div>
@@ -48,13 +48,13 @@
 				class="pw_input"
 				type="password"
 				bind:value={passwordValue}
-				required
 				on:invalid={handleInvalid}
 				on:input={handleInput}
 				placeholder="비밀번호를 입력하세요"
+				required
 			/>
 		</div>
-		<button type="submit" class="login_btn" disabled> 로그인</button>
+		<button type="submit" class="login_btn"> 로그인</button>
 	</form>
 </div>
 
