@@ -7,8 +7,10 @@
 <div class="sidebar">
 	<a href="/" class:active={$page.url.pathname === '/'}>Main</a>
 	<a href="/user" class:active={$page.url.pathname === '/user'}>User</a>
-	<a href="/movie" class:active={$page.url.pathname === '/movie'}>Movie</a>
+	<a href="/outing" class:active={$page.url.pathname === '/outing'}>Outing</a>
 	<a href="/ad" class:active={$page.url.pathname === '/ad'}>AD</a>
+	<a href="/chart" class:active={$page.url.pathname === '/chart'}>Chart</a>
+	<a href="/report" class:active={$page.url.pathname === '/report'}>Report</a>
 </div>
 
 <style>

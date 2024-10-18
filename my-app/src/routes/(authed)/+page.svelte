@@ -1,13 +1,17 @@
-<script>
-	// let count = 0;
-
+<script lang="ts">
 	const counting = [
 		{ label: '총 방문자 수', count: 12450 },
 		{ label: '하루 방문자 수', count: 450 },
+		{ label: '총 수입', count: 124602000 },
 		{ label: '총 회원 수', count: 3200 },
 		{ label: '총 동영상 수', count: 125 },
 		{ label: '총 광고 수', count: 50 }
 	];
+
+	// Type annotation for 'num' as a number
+	const formatCurrency = (num: number): string => {
+		return new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(num);
+	};
 </script>
 
 <h1>대시보드</h1>
@@ -16,7 +20,11 @@
 	{#each counting as data}
 		<div class="counting_box">
 			<p>{data.label}</p>
-			<span>{data.count.toLocaleString()}</span>
+			{#if data.label === '총 수입'}
+				<span>{formatCurrency(data.count)}</span>
+			{:else}
+				<span>{data.count.toLocaleString()}</span>
+			{/if}
 		</div>
 	{/each}
 </div>
@@ -34,8 +42,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		justify-content: space-between;
-		gap: 15px 5px;
+		justify-content: center;
+		gap: 25px 25px;
 	}
 
 	.counting_box {
@@ -59,13 +67,13 @@
 		font-size: 28px;
 	}
 
-	.counting_box:nth-child(1),
+	/* .counting_box:nth-child(1),
 	.counting_box:nth-child(2) {
 		max-width: 390px;
 		width: 100%;
 		aspect-ratio: 3/2;
 		border-radius: 10px;
-	}
+	} */
 
 	/* 800px + 400px(한쪽200px마진이라) */
 	@media (max-width: 1200px) {
@@ -81,14 +89,15 @@
 
 		h1 {
 			margin: auto;
-			width: fit-content;
+			max-width: 800px;
+			width: 100%;
+			padding: 20px 5px;
+			text-align: center;
 		}
 
 		.counting_wrap {
 			margin: auto;
 			padding: 0 5px;
-			/* justify-content: center; */
-			/* gap: 0px; */
 		}
 	}
 </style>

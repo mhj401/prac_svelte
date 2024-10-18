@@ -18,25 +18,24 @@
 	}
 
 	interface User {
-		nickName: string;
 		name: string;
-		movieCount: number;
+		createOuting: number;
+		joinOuting: number;
 		followerCount: number;
 	}
 
 	let users: User[] = [
-		{ nickName: 'ralph', name: 'Moon HongJoo', movieCount: 12, followerCount: 31 },
-		{ nickName: 'Faker', name: 'Lee Sanghyuk', movieCount: 106, followerCount: 2300 },
-		{ nickName: 'Zefa', name: 'Lee Jae-min', movieCount: 45, followerCount: 1500 },
-		{ nickName: 'Canna', name: 'Kim Chang-dong', movieCount: 67, followerCount: 2100 },
-		{ nickName: 'Teddy', name: 'Park Jin-sung', movieCount: 99, followerCount: 5000 },
-		{ nickName: 'Khan', name: 'Kim Dong-ha', movieCount: 54, followerCount: 1200 },
-		{ nickName: 'Showmaker', name: 'Heo Su', movieCount: 76, followerCount: 3400 },
-		{ nickName: 'Nuguri', name: 'Jang Ha-gwon', movieCount: 43, followerCount: 2100 },
-		{ nickName: 'Ruler', name: 'Park Jae-hyuk', movieCount: 132, followerCount: 7100 },
-		{ nickName: 'Chovy', name: 'Jeong Ji-hoon', movieCount: 120, followerCount: 8200 },
-		{ nickName: 'Deft', name: 'Kim Hyuk-kyu', movieCount: 144, followerCount: 9500 }
-		// ... 더 많은 유저 데이터
+		{ name: 'Moon HongJoo', joinOuting: 30, createOuting: 12, followerCount: 31 },
+		{ name: 'Lee Sanghyuk', joinOuting: 0, createOuting: 106, followerCount: 2300 },
+		{ name: 'Lee Jae-min', joinOuting: 1, createOuting: 45, followerCount: 1500 },
+		{ name: 'Kim Chang-dong', joinOuting: 21, createOuting: 67, followerCount: 2100 },
+		{ name: 'Park Jin-sung', joinOuting: 35, createOuting: 99, followerCount: 5000 },
+		{ name: 'Kim Dong-ha', joinOuting: 23, createOuting: 54, followerCount: 1200 },
+		{ name: 'Heo Su', joinOuting: 11, createOuting: 76, followerCount: 3400 },
+		{ name: 'Jang Ha-gwon', joinOuting: 9, createOuting: 43, followerCount: 2100 },
+		{ name: 'Park Jae-hyuk', joinOuting: 7, createOuting: 132, followerCount: 7100 },
+		{ name: 'Jeong Ji-hoon', joinOuting: 23, createOuting: 120, followerCount: 8200 },
+		{ name: 'Kim Hyuk-kyu', joinOuting: 40, createOuting: 144, followerCount: 9500 }
 	];
 
 	let currentPage = 1;
@@ -93,18 +92,18 @@
 
 <div class="user_wrap">
 	<div class="list_head tr">
-		<div class="td">닉네임</div>
 		<div class="td">이름</div>
-		<div class="td">동영상</div>
+		<div class="td">생성한 아우팅</div>
+		<div class="td">가입한 아우팅</div>
 		<div class="td">팔로워</div>
 	</div>
 
 	<div class="list_wrap">
 		{#each currentPageUsers as user}
 			<div class="user_list tr">
-				<div class="user_nickname td">{user.nickName}</div>
 				<div class="user_name td">{user.name}</div>
-				<div class="user_movie td">{user.movieCount}</div>
+				<div class="user_movie td">{user.createOuting}</div>
+				<div class="user_movie td">{user.joinOuting}</div>
 				<div class="user_follower td">{formatCount(user.followerCount)}</div>
 			</div>
 		{/each}
@@ -194,7 +193,7 @@
 	}
 
 	.td {
-		min-width: 120px;
+		min-width: 200px;
 		text-align: center;
 		display: flex;
 		align-content: center;
