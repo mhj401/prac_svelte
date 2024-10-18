@@ -1,5 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import {
+		faAnglesRight,
+		faAnglesLeft,
+		faAngleLeft,
+		faChevronRight
+	} from '@fortawesome/free-solid-svg-icons';
+	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
 
 	function formatCount(count: number): string {
 		if (count >= 1000000) {
@@ -35,12 +42,6 @@
 	let currentPage = 1;
 	const itemsPerPage = 5;
 	const totalPages = Math.ceil(users.length / itemsPerPage);
-
-	// $: pages = Array<number>(itemsPerPage)
-	// 	.fill(0)
-	// 	.map((_, i) => {
-	// 		return currentPage + i;
-	// 	});
 
 	let currentPageUsers: User[] = getCurrentPageUsers();
 	let pageNumbers: number[] = []; // 빈 배열로 초기화
@@ -111,10 +112,16 @@
 
 	<!-- 페이징 버튼 -->
 	<div class="pagination">
+		<!-- 처음 버튼 -->
+		<button class="first_btn" on:click={() => changePage(1)} disabled={currentPage === 1}>
+			<FontAwesomeIcon icon={faAnglesLeft} />
+		</button>
+		<!-- 이전 버튼 -->
 		<button on:click={() => changePage(currentPage - 1)} disabled={currentPage === 1}>
-			이전
+			<FontAwesomeIcon icon={faAngleLeft} />
 		</button>
 
+		<!-- 페이지버튼 -->
 		{#each pageNumbers as page}
 			<button
 				class="num_btn"
@@ -128,8 +135,17 @@
 			</button>
 		{/each}
 
+		<!-- 다음 버튼 -->
 		<button on:click={() => changePage(currentPage + 1)} disabled={currentPage === totalPages}>
-			다음
+			<FontAwesomeIcon icon={faChevronRight} />
+		</button>
+		<!-- 끝 버튼 -->
+		<button
+			class="last_btn"
+			on:click={() => changePage(totalPages)}
+			disabled={currentPage === totalPages}
+		>
+			<FontAwesomeIcon icon={faAnglesRight} />
 		</button>
 	</div>
 </div>
@@ -205,6 +221,12 @@
 		margin: 0 10px;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
+	}
+
+	.pagination .first_btn,
+	.pagination .last_btn {
+		margin: 0px;
+		padding: 10px;
 	}
 
 	.pagination button:disabled {
